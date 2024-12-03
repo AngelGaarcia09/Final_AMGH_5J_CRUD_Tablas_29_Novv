@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarCliente/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="number" id="txtcodigo" name="txtcodigo" class="form-control" value="{{ mi_cliente.id_cliente }}" readonly>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtnombre" name="txtnombre" class="form-control" value="{{ mi_cliente.nombre }}" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtdnl" name="txtdnl" class="form-control" value="{{ mi_cliente.dnl }}" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="number" id="numidcompra" name="numidcompra" class="form-control" value="{{ mi_cliente.id_compra }}" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtdireccion" name="txtdireccion" class="form-control" value="{{ mi_cliente.direccion }}" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="date" id="datefecha_nacimiento" name="datefecha_nacimiento" class="form-control" value="{{ fecha_nacimiento }}" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtrfc" name="txtrfc" class="form-control" value="{{ mi_cliente.rfc }}" maxlength="50" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <input type="text" id="txtapellidos" name="txtapellidos" class="form-control" value="{{ mi_cliente.apellidos }}" maxlength="100" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
